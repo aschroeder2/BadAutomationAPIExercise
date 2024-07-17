@@ -36,10 +36,15 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.bullhorn</groupId>
-      <artifactId>jenkins-scraper</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>test</scope>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20090211</version>
+      <exclusions>
+        <exclusion>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
 

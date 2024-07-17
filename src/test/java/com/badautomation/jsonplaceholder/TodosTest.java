@@ -2,6 +2,7 @@ package com.badautomation.jsonplaceholder;
 
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -54,7 +55,7 @@ public class TodosTest {
     }
 
     @Test
-    public void NEW_TODO() {
+    public void NEW_TODO() throws JSONException {
         JSONObject body =  new JSONObject().put("userId", 2).put("title", "Automate tests for JSONPlaceholder").put("completed", false);
         Response response = given().log().all().when().body(body.toString()).post("https://jsonplaceholder.typicode.com/todos").then().statusCode(201).log().all().extract().response();
         Assert.assertNotNull(response.path("id"));
